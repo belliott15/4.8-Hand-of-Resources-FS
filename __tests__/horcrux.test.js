@@ -7,8 +7,9 @@ describe('backend-express-template routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it('example test - delete me!', () => {
-    expect(1).toEqual(1);
+  it('GET /horcrux should return a list of all horcruxs', async () => {
+    const res = await request(app).get('/horcrux');
+    expect(res.body.length).toEqual(7);
   });
   afterAll(() => {
     pool.end();
