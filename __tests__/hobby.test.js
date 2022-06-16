@@ -12,17 +12,17 @@ describe('backend-express-template routes', () => {
     expect(res.body.length).toEqual(7);
   });
 
-  //   it('GET /horcrux/id should return a single horcrux', async () => {
-  //     const res = await request(app).get('/horcrux/1');
-  //     const expected = {
-  //       id: '1',
-  //       name: 'Tom Riddles Diary', 
-  //       original_owner: 'Tom Riddle', 
-  //       house_artifact: false, 
-  //       sacrifice: 'Myrtle Warren'
-  //     };
-  //     expect(res.body).toEqual(expected);
-  //   });
+  it('GET /hobby/id should return a single hobby', async () => {
+    const res = await request(app).get('/hobby/1');
+    const expected = {
+      id: '1',
+      name: 'Rock Climbing', 
+      started: 2011, 
+      active: true, 
+    };
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual(expected);
+  });
 
   //   it('POST /horcrux should add a horcrux to the table data', async () => {
   //     const res = await await request(app)
