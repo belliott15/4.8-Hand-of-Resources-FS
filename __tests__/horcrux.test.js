@@ -39,7 +39,7 @@ describe('backend-express-template routes', () => {
 
   it('PUT /horcrux/:id should update a horcrux', async () => {
     const res = await request(app)
-      .put('/horcrux/1')
+      .put('/horcrux/7')
       .send({ name: 'Lord Voldemort', 
         original_owner: 'Tom Marvolo Riddle', 
         house_artifact: false,
@@ -50,17 +50,12 @@ describe('backend-express-template routes', () => {
     expect(res.body.original_owner).toEqual('Tom Marvolo Riddle');
   });
 
-  it('Put /horcrux/:id should update a horcrux', async () => {
-    const res = await request(app)
-      .put('/horcrux/1')
-      .send({ name: 'Lord Voldemort', 
-        original_owner: 'Tom Marvolo Riddle', 
-        house_artifact: false,
-        sacrifice: 'Lord Voldemort'
-      });
+  it('DELETE /horcrux/:id should delete a horcrux', async () => {
+    const res = await request(app).delete('/horcrux/1');
     expect(res.status).toBe(200);
-    expect(res.body.name).toEqual('Lord Voldemort');
-    expect(res.body.original_owner).toEqual('Tom Marvolo Riddle');
+
+    const { body } = await request(app).get('/horcrux/1');
+    expect(body).toEqual(null);
   });
 
   afterAll(() => {
