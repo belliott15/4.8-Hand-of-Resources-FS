@@ -51,10 +51,10 @@ describe('backend-express-template routes', () => {
   });
 
   it('DELETE /horcrux/:id should delete a horcrux', async () => {
-    const res = await request(app).delete('/horcrux/1');
+    const res = await request(app).delete('/horcrux/7');
     expect(res.status).toBe(200);
 
-    const { body } = await request(app).get('/horcrux/1');
+    const { body } = await request(app).get('/horcrux/7');
     expect(body).toEqual(null);
   });
 
