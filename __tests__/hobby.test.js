@@ -24,18 +24,17 @@ describe('backend-express-template routes', () => {
     expect(res.body).toEqual(expected);
   });
 
-  //   it('POST /horcrux should add a horcrux to the table data', async () => {
-  //     const res = await await request(app)
-  //       .post('/horcrux')
-  //       .send({ name: 'Lord Voldemort', 
-  //         original_owner: 'Tom Riddle', 
-  //         house_artifact: false,
-  //         sacrifice: 'Lord Voldemort'
-  //       });
-  //     expect(res.status).toBe(200);
-  //     expect(res.body.name).toEqual('Lord Voldemort');
-  //     expect(res.body.id).toEqual('8');
-  //   });
+  it('POST /hobby should add a hobby', async () => {
+    const res = await request(app)
+      .post('/hobby')
+      .send({ name: 'Flying Trapeze', 
+        started: 2022, 
+        active: false,
+      });
+    expect(res.status).toBe(200);
+    expect(res.body.name).toEqual('Flying Trapeze');
+    expect(res.body.id).toEqual('8');
+  });
 
   //   it('PUT /horcrux/:id should update a horcrux', async () => {
   //     const res = await request(app)
