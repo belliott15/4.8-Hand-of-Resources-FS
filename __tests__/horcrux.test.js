@@ -14,7 +14,14 @@ describe('backend-express-template routes', () => {
 
   it('GET /horcrux/id should return a single horcrux', async () => {
     const res = await request(app).get('/horcrux/1');
-    expect(res.body.name).toEqual('Tom Riddles Diary');
+    const expected = {
+      id: '1',
+      name: 'Tom Riddles Diary', 
+      original_owner: 'Tom Riddle', 
+      house_artifact: false, 
+      sacrifice: 'Myrtle Warren'
+    };
+    expect(res.body).toEqual(expected);
   });
 
   it('POST /horcrux should add a horcrux to the table data', async () => {
