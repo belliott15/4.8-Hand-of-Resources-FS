@@ -1,5 +1,6 @@
 -- Use this file to define your SQL tables
 -- The SQL in this file will be executed when you run `npm run setup-db`
+DROP TABLE IF EXISTS hobbies;
 DROP TABLE IF EXISTS horcruxes;
 
 CREATE TABLE horcruxes (
@@ -24,3 +25,25 @@ VALUES
 ('Ravenclaw Diadem', 'Rowena Ravenclaw', true, 'Albanian Pesant'),
 ('Nagini', 'Tom Riddle', false, 'Bertha Jorkins'),
 ('Harry Potter', 'Harry Potter', false, 'Lily Potter');
+
+CREATE TABLE hobbies (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR NOT NULL, 
+    started INT NOT NULL,
+    active BOOLEAN NOT NULL
+);
+
+INSERT INTO hobbies (
+    name,
+    started, 
+    active
+)
+VALUES
+('Rock Climbing', 2011, true),
+('Baking', 2010, false),
+('Pole Dance', 2013, true),
+('Aerial Silks', 2011, true),
+('Hand Balancing', 2014, true),
+('Dungeons and Dragons', 2019, false),
+('Speech and Debate', 2005, false)
+;
