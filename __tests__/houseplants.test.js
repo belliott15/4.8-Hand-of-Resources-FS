@@ -38,7 +38,7 @@ describe('backend-express-template routes', () => {
       });
     expect(res.status).toEqual(200);
     expect(res.body.name).toEqual('Snake Plant');
-    expect(res.body.length).toEqual(9);
+    expect(res.body.age).toEqual(3);
   });
 
 
