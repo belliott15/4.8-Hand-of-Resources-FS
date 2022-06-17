@@ -45,13 +45,15 @@ describe('backend-express-template routes', () => {
     expect(res.body.name).toEqual('Pole Dance');
   });
 
-  //   it('DELETE /horcrux/:id should delete a horcrux', async () => {
-  //     const res = await request(app).delete('/horcrux/7');
-  //     expect(res.status).toBe(200);
+  it('DELETE /hobby/:id should delete selected hobby', async () => {
+    const res = await request(app).delete('/hobby/7');
+    expect(res.status).toBe(200);
+    const resp = await request(app).get('/hobby');
+    expect(resp.body.length).toEqual(6);
 
-  //     const { body } = await request(app).get('/horcrux/7');
-  //     expect(body).toEqual(null);
-  //   });
+    // const { body } = await request(app).get('/hobby/7');
+    // expect(body).toEqual('');
+  });
 
   afterAll(() => {
     pool.end();
