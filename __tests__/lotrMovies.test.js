@@ -7,8 +7,8 @@ describe('backend-express-template routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it('GET /houseplant should return a list of all houseplants', async () => {
-    const res = await request(app).get('/houseplant');
+  it('GET /lotrmovie should return a list of LOTR Movies', async () => {
+    const res = await request(app).get('/lotrmovie');
     expect(res.status).toEqual(200);
     expect(res.body.length).toEqual(6);
   });
