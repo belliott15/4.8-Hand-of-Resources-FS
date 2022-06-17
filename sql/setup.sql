@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS horcruxes;
 DROP TABLE IF EXISTS hobbies;
 DROP TABLE IF EXISTS lozgames;
 DROP TABLE IF EXISTS houseplants;
+DROP TABLE IF EXISTS lotrmovies;
 
 
 CREATE TABLE horcruxes (
@@ -110,4 +111,25 @@ VALUES
 ('Jade Tree', 4, 'Crassula ovata', true),
 ('Majesty Palm', 1, 'Ravenea rivularis', false),
 ('Peace Lilly', 2, 'Spathiphyllum', true)
+;
+
+CREATE TABLE lotrmovies (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR NOT NULL, 
+    released INT NOT NULL,
+    extended_edition BOOLEAN NOT NULL
+);
+
+INSERT INTO lotrmovies (
+    name,
+    released, 
+    extended_edition
+)
+VALUES
+('The Lord of the Rings: The Fellowship of the Ring', 2001, true),
+('The Lord of the Rings: The Two Towers', 2002, true),
+('The Lord of the Rings: The Return of the King', 2003, true),
+('The Hobbit: An Unexpected Journey', 2012, true),
+('The Hobbit: The Desolation of Smaug', 2013, true),
+('The Hobbit: The Battle of the Five Armies', 2014, true)
 ;
