@@ -3,6 +3,7 @@
 DROP TABLE IF EXISTS horcruxes;
 DROP TABLE IF EXISTS hobbies;
 DROP TABLE IF EXISTS lozgames;
+DROP TABLE IF EXISTS houseplants;
 
 
 CREATE TABLE horcruxes (
@@ -83,4 +84,30 @@ VALUES
 ('The Legend of Zelda: A Link Between Worlds', 2013, 'Nintendo 3DS', true),
 ('The Legend of Zelda: Tri Force Heroes', 2015, 'Nintendo 3DS', false),
 ('The Legend of Zelda: Breath of the Wild', 2017, 'Nintendo Switch', true)
+;
+
+
+CREATE TABLE houseplants (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR NOT NULL, 
+    age INT NOT NULL,
+    species VARCHAR NOT NULL,
+    alive BOOLEAN NOT NULL
+);
+
+INSERT INTO houseplants (
+    name,
+    age, 
+    species,
+    alive
+)
+VALUES
+('ZZ Plant', 5 , 'Zamioculcas zamiifolia', true),
+('Prayer Plant', 5, 'Maranta Leuconeura', true),
+('Bird of Paradise', 4, 'Strelitzia reginae', true),
+('Rubber Tree', 3, 'Ficus Elastica', false),
+('Neon Pothos', 3, 'Epipremnum aureum neon', true),
+('Jade Tree', 4, 'Crassula ovata', true),
+('Majesty Palm', 1, 'Ravenea rivularis', false),
+('Peace Lilly', 2, 'Spathiphyllum', true)
 ;
