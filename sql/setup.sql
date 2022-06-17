@@ -55,14 +55,14 @@ CREATE TABLE lozgames (
     name VARCHAR NOT NULL, 
     released INT NOT NULL,
     system VARCHAR NOT NULL,
-    zeldaPresent BOOLEAN NOT NULL
+    zelda_present BOOLEAN NOT NULL
 );
 
 INSERT INTO lozgames (
     name,
     released, 
     system,
-    zeldaPresent
+    zelda_present
 )
 VALUES
 ('The Legend of Zelda', 1986, 'Famicom Disk System', true),

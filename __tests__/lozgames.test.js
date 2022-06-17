@@ -13,12 +13,13 @@ describe('backend-express-template routes', () => {
   });
 
   it('GET /lozgames/:id will return a single game', async () => {
-    const res = await request(app).get('/lozgames/4');
+    const res = await request(app).get('/lozgames/5');
     const expected = { 
-      name: 'The Legend of Zelda: Ocarina of Time', 
-      released: 1998, 
-      system: 'Nintendo 64', 
-      zeldaPresent: true
+      'id': '5',
+      'name': 'The Legend of Zelda: Ocarina of Time', 
+      'released': 1998, 
+      'system': 'Nintendo 64', 
+      'zelda_present': true,
     };
     expect(res.status).toEqual(200);
     expect(res.body).toEqual(expected);
