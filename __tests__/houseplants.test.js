@@ -53,8 +53,10 @@ describe('backend-express-template routes', () => {
     const res = await request(app)
       .delete('/houseplant/3');
     expect(res.status).toEqual(200);
-    expect(res.body).toEqual(null);
-  })
+    
+    const resp = await request(app).get('/houseplant/3');
+    expect(resp.body).toEqual(null);
+  });
 
   afterAll(() => {
     pool.end();
