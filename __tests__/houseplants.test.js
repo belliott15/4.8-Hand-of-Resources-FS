@@ -20,6 +20,13 @@ describe('backend-express-template routes', () => {
     expect(res.body[0]).toEqual(expected);
   });
 
+  it('GET /:id should return a specific houseplant', async () => {
+    const res = await request(app).get('/houseplant/3');
+    expect(res.status).toBe(200);
+    expect(res.body.name).toEqual('Bird of Paradise');
+    expect(res.body.species).toEqual('Strelitzia reginae');
+  })
+
 
   afterAll(() => {
     pool.end();
