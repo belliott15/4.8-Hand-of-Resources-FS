@@ -38,6 +38,15 @@ describe('backend-express-template routes', () => {
     expect(res.body.name).toEqual('Legend of Zelda: Breath of the Wild 2');
   });
 
+  it('PUT /lozgames/:id will update a specific game', async () => {
+    const res = await request(app)
+      .put('/lozgames/7')
+      .send({ zelda_present: false });
+    expect(res.status).toBe(200);
+    expect(res.body.zelda_present).toEqual(false);
+    expect(res.body.name).toEqual('The Legend of Zelda : Oracle of Seasons & Oracale of Ages');
+  });
+
   afterAll(() => {
     pool.end();
   });
