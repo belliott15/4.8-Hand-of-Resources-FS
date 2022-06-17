@@ -19,7 +19,7 @@ describe('backend-express-template routes', () => {
     expect(res.body.name).toEqual('The Lord of the Rings: The Two Towers');
   });
 
-  it('POST /lotrmovie shoul add a new movie to the data set', async () => {
+  it('POST /lotrmovie should add a new movie to the data set', async () => {
     const res = await request(app)
       .post('/lotrmovie')
       .send({
@@ -30,6 +30,15 @@ describe('backend-express-template routes', () => {
     expect(res.status).toEqual(200);
     expect(res.body.name).toEqual('Subltle racism in middle earth');
     expect(res.body.released).toEqual(2022);
+  });
+
+  it('PUT /lotrmovie should update an already existing movie', async () => {
+    const res = await request(app)
+      .put('/lotrmovie/6')
+      .send({ name: 'The Hobbit: A Battle of Five Armies' });
+    expect(res.staus).toEqual(200);
+    expect(res.body.name).toEqual('The Hobbit: A Battle of Five Armies');
+    expect(res.body.released).toEqual(2014);
   });
 
   afterAll(() => {
