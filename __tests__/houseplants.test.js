@@ -25,7 +25,21 @@ describe('backend-express-template routes', () => {
     expect(res.status).toBe(200);
     expect(res.body.name).toEqual('Bird of Paradise');
     expect(res.body.species).toEqual('Strelitzia reginae');
-  })
+  });
+
+  it('POSt /houseplant should add a new houseplant', async () => {
+    const res = await request(app)
+      .post('/houseplant')
+      .send({
+        name: 'Snake Plant', 
+        age: 3, 
+        species: 'Dracaena trifasciata',
+        alive: true
+      });
+    expect(res.status).toEqual(200);
+    expect(res.body.name).toEqual('Snake Plant');
+    expect(res.body.length).toEqual(9);
+  });
 
 
   afterAll(() => {
