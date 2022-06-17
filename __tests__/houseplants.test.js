@@ -27,7 +27,7 @@ describe('backend-express-template routes', () => {
     expect(res.body.species).toEqual('Strelitzia reginae');
   });
 
-  it('POSt /houseplant should add a new houseplant', async () => {
+  it('POST /houseplant should add a new houseplant', async () => {
     const res = await request(app)
       .post('/houseplant')
       .send({
@@ -39,6 +39,14 @@ describe('backend-express-template routes', () => {
     expect(res.status).toEqual(200);
     expect(res.body.name).toEqual('Snake Plant');
     expect(res.body.age).toEqual(3);
+  });
+
+  it('PUT /houseplant/:id should update a houseplant', async () => {
+    const res = await request(app)
+      .put('/houseplant/1')
+      .send({ alive: false });
+    expect(res.status).toEqual(200);
+    expect(res.body.alive).toEqual(false);
   });
 
 
