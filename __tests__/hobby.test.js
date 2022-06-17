@@ -51,8 +51,8 @@ describe('backend-express-template routes', () => {
     const resp = await request(app).get('/hobby');
     expect(resp.body.length).toEqual(6);
 
-    // const { body } = await request(app).get('/hobby/7');
-    // expect(body).toEqual('');
+    const { body } = await request(app).get('/hobby/7');
+    expect(body).toEqual('');
   });
 
   afterAll(() => {

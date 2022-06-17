@@ -51,8 +51,8 @@ describe('backend-express-template routes', () => {
     const res = await request(app)
       .delete('/lozgames/10');
     expect(res.status).toEqual(200);
-    console.log('res.body', res.body);
-    expect(res.body).toEqual(null);
+    const resp = await request(app).get('/lozgames/10');
+    expect(resp.body).toEqual(null);
   });
 
   afterAll(() => {
