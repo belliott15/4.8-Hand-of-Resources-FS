@@ -52,7 +52,7 @@ describe('backend-express-template routes', () => {
     expect(resp.body.length).toEqual(6);
 
     const { body } = await request(app).get('/hobby/7');
-    expect(body).toEqual('');
+    expect(body).toEqual(null);
   });
 
   afterAll(() => {
