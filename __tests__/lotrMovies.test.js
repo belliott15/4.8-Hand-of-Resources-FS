@@ -16,9 +16,8 @@ describe('backend-express-template routes', () => {
   it('GET /lotrmovie should reutrn a single movie', async () => {
     const res = await request(app).get('/lotrmovie/2');
     expect(res.status).toEqual(200);
-    expect(res.body.length).toEqual(1);
     expect(res.body.name).toEqual('The Lord of the Rings: The Two Towers');
-  })
+  });
 
 
   afterAll(() => {
