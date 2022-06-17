@@ -47,6 +47,14 @@ describe('backend-express-template routes', () => {
     expect(res.body.name).toEqual('The Legend of Zelda : Oracle of Seasons & Oracale of Ages');
   });
 
+  it('DELETE /lozgames/:id will delete a specific game', async () => {
+    const res = await request(app)
+      .delete('/lozgames/10');
+    expect(res.status).toEqual(200);
+    console.log('res.body', res.body);
+    expect(res.body).toEqual(null);
+  });
+
   afterAll(() => {
     pool.end();
   });
