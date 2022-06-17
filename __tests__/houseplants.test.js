@@ -49,6 +49,12 @@ describe('backend-express-template routes', () => {
     expect(res.body.alive).toEqual(false);
   });
 
+  it('DELETE /houseplant/:id should delete a houseplant from the table', async () => {
+    const res = await request(app)
+      .delete('/houseplant/3');
+    expect(res.status).toEqual(200);
+    expect(res.body).toEqual(null);
+  })
 
   afterAll(() => {
     pool.end();
