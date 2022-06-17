@@ -29,25 +29,21 @@ describe('backend-express-template routes', () => {
       .post('/hobby')
       .send({ name: 'Flying Trapeze', 
         started: 2022, 
-        active: false,
+        active: true
       });
     expect(res.status).toBe(200);
     expect(res.body.name).toEqual('Flying Trapeze');
     expect(res.body.id).toEqual('8');
   });
 
-  //   it('PUT /horcrux/:id should update a horcrux', async () => {
-  //     const res = await request(app)
-  //       .put('/horcrux/7')
-  //       .send({ name: 'Lord Voldemort', 
-  //         original_owner: 'Tom Marvolo Riddle', 
-  //         house_artifact: false,
-  //         sacrifice: 'Lord Voldemort'
-  //       });
-  //     expect(res.status).toBe(200);
-  //     expect(res.body.name).toEqual('Lord Voldemort');
-  //     expect(res.body.original_owner).toEqual('Tom Marvolo Riddle');
-  //   });
+  it('PUT /hobby/:id should update a hobby', async () => {
+    const res = await request(app)
+      .put('/hobby/3')
+      .send({ active: false });
+    expect(res.status).toBe(200);
+    expect(res.body.active).toEqual(false);
+    expect(res.body.name).toEqual('Pole Dance');
+  });
 
   //   it('DELETE /horcrux/:id should delete a horcrux', async () => {
   //     const res = await request(app).delete('/horcrux/7');

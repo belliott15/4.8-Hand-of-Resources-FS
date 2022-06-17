@@ -42,8 +42,6 @@ describe('backend-express-template routes', () => {
       .put('/horcrux/7')
       .send({ name: 'Lord Voldemort', 
         original_owner: 'Tom Marvolo Riddle', 
-        house_artifact: false,
-        sacrifice: 'Lord Voldemort'
       });
     expect(res.status).toBe(200);
     expect(res.body.name).toEqual('Lord Voldemort');
