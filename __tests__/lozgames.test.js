@@ -25,6 +25,19 @@ describe('backend-express-template routes', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it('POST /lozgames will add a new game to the data list', async () => {
+    const res = await request(app)
+      .post('/lozgames')
+      .send({
+        name: 'Legend of Zelda: Breath of the Wild 2',
+        released: 2022, 
+        system: 'Nintendo Switch',
+        zelda_present: true,
+      });
+    expect(res.status).toEqual(200);
+    expect(res.body.name).toEqual('Legend of Zelda: Breath of the Wild 2');
+  });
+
   afterAll(() => {
     pool.end();
   });
