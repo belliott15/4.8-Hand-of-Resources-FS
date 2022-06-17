@@ -24,12 +24,12 @@ describe('backend-express-template routes', () => {
       .post('/lotrmovie')
       .send({
         name: 'Subltle racism in middle earth',
-        release: 2022,
+        released: 2022,
         extended_edition: false
       });
     expect(res.status).toEqual(200);
     expect(res.body.name).toEqual('Subltle racism in middle earth');
-    expect(res.body.release).toEqual(2022);
+    expect(res.body.released).toEqual(2022);
   });
 
   afterAll(() => {
