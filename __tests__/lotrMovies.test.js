@@ -32,11 +32,11 @@ describe('backend-express-template routes', () => {
     expect(res.body.released).toEqual(2022);
   });
 
-  it('PUT /lotrmovie should update an already existing movie', async () => {
+  it('PUT /lotrmovie/:id should update an already existing movie', async () => {
     const res = await request(app)
       .put('/lotrmovie/6')
       .send({ name: 'The Hobbit: A Battle of Five Armies' });
-    expect(res.staus).toEqual(200);
+    expect(res.status).toEqual(200);
     expect(res.body.name).toEqual('The Hobbit: A Battle of Five Armies');
     expect(res.body.released).toEqual(2014);
   });
