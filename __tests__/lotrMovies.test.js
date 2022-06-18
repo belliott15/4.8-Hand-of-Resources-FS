@@ -43,10 +43,10 @@ describe('backend-express-template routes', () => {
 
   it('DELETE /lotrmovie/:id should delete a movie from the data table', async () => {
     const res = await request(app)
-      .delete('lotrmovie/6');
+      .delete('/lotrmovie/6');
     expect(res.status).toEqual(200);
     
-    const resp = await request(app).get(resp.body);
+    const resp = await request(app).get('/lotrmovie/6');
     expect(resp.body).toEqual(null);
   });
 
