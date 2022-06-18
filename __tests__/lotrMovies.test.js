@@ -41,6 +41,15 @@ describe('backend-express-template routes', () => {
     expect(res.body.released).toEqual(2014);
   });
 
+  it('DELETE /lotrmovie/:id should delete a movie from the data table', async () => {
+    const res = await request(app)
+      .delete('lotrmovie/6');
+    expect(res.status).toEqual(200);
+    
+    const resp = await request(app).get(resp.body);
+    expect(resp.body).toEqual(null);
+  });
+
   afterAll(() => {
     pool.end();
   });
